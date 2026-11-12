@@ -1,0 +1,142 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+  gap: 2rem;
+}
+
+/* roots */
+:root {
+    /* colors */
+    --cl-background:#191B1A;
+    --cl-primary:#EAEAEA;
+    --cl-secodary: ;
+    --cl-highlight:#791316;
+
+    /* fonts */
+    --ff-navbar:'Bebas Neue', sans-serif;
+    --ff-content:'Courier Prime', monospace; 
+    --ff-accent:'Inter', sans-serif; 
+}
+
+body {
+    background-color: var(--cl-background);
+}
+
+/* navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    
+    /* glass effect */
+    background: rgba(25, 27, 26, 0.1); 
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.logo {
+    font-family: var(--ff-navbar);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--cl-primary);
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.7;
+}
+
+/* desktop links */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 3rem;
+}
+
+.nav-links a {
+    font-family: var(--ff-body);
+    font-size: 0.85rem;
+    color: var(--cl-primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* underline effect */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--cl-highlight);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* hamburger menu */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.bar {
+    width: 25px;
+    height: 2px;
+    background-color: var(--cl-primary);
+    transition: all 0.3s ease;
+}
+
+/* mobile resposiveness */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--cl-background);
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        gap: 2rem;
+        /* Hide it by default */
+        transform: translateY(-150%); 
+        transition: transform 0.4s ease-in-out;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* Class added by JS to show menu */
+    .nav-links.active {
+        transform: translateY(0);
+    }
+}
