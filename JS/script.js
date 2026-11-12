@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         
-        // Optional: Animate the hamburger into an 'X'
         hamburger.classList.toggle('toggle');
     });
 
@@ -19,9 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(25, 27, 26, 0.9)'; // Solid dark
+            navbar.style.background = 'rgba(25, 27, 26, 0.9)'; 
         } else {
-            navbar.style.background = 'rgba(25, 27, 26, 0.1)'; // Transparent glass
+            navbar.style.background = 'rgba(25, 27, 26, 0.1)';
         }
     });
 });
