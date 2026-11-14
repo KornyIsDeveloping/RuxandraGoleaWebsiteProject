@@ -1,63 +1,138 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@300;400&family=Bebas+Neue&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="CSS/styles.css" />
-    <title>Portfolio Website</title>
-  </head>
-  <body>
-    <!-- navbar -->
-    <nav class="navbar">
-      <a href="#" class="logo">Ruxandra Golea</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@300;400&family=Bebas+Neue&display=swap"
+    rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
 
-      <ul class="nav-links">
-        <li><a href="#work">HOME</a></li>
-        <li><a href="#about">PORTFOLIO</a></li>
-        <!-- <li><a href="#about">BTS PHOTOS</a></li> -->
-        <!-- <li><a href="#about">CERTIFICATES</a></li> -->
-        <li><a href="#about">ABOUT</a></li>
-        <li><a href="#contact">CONTACT</a></li>
-      </ul>
+  <link rel="stylesheet" href="CSS/styles.css" />
+  <title>Portfolio Website</title>
+</head>
 
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
+<body>
+  <!-- navbar -->
+  <nav class="navbar">
+    <a href="#home" class="logo">Ruxandra Golea</a>
+
+    <ul class="nav-links">
+      <li><a href="#home">HOME</a></li>
+      <li><a href="#portfolio">PORTFOLIO</a></li>
+      <!-- <li><a href="#about">BTS PHOTOS</a></li> -->
+      <!-- <li><a href="#about">CERTIFICATES</a></li> -->
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+
+    <div class="hamburger">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </div>
+  </nav>
+
+  <!-- home page (hero section)-->
+  <section class="hero">
+    <!-- background image -->
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <h1 class="hero-headline">
+        Storytelling Through <span class="accent">Cinema</span>
+      </h1>
+
+      <p class="hero-subheadline">
+        Film student passionate about creating compelling visual narratives
+        that inspire, challenge, and entertain audiences worldwide.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#work" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
       </div>
-    </nav>
-    <!-- home page -->
-    <section class="hero">
-      <!-- background image -->
-      <div class="hero-overlay"></div>
+    </div>
+  </section>
 
-      <div class="hero-content">
-        <h1 class="hero-headline">
-          Storytelling Through <span class="accent">Cinema</span>
-        </h1>
+  <!-- portfolio -->
+  <section id="portfolio" class="portfolio-section">
+    <div class="container">
 
-        <p class="hero-subheadline">
-          Film student passionate about creating compelling visual narratives
-          that inspire, challenge, and entertain audiences worldwide.
-        </p>
-
-        <div class="hero-cta">
-          <a href="#work" class="btn btn-primary">View My Work</a>
-          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-        </div>
+      <div class="section-header">
+        <h2 class="section-title">Selected Work</h2>
+        <p class="section-subtitle">A collection of recent cinematography projects</p>
       </div>
-    </section>
+
+      <div class="projects-grid">
+
+        <!-- project card 1 -->
+        <article class="project-card" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1">
+          <div class="card-image-wrapper">
+            <!-- We added a background color in CSS, so this looks fine even if image is missing -->
+            <img src="assets/images/project-1.jpg" alt="The Midnight Train" class="card-image">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3 class="card-title">The Midnight Train</h3>
+            <p class="card-meta">Director of Photography &nbsp;|&nbsp; 2024</p>
+          </div>
+        </article>
+
+        <!-- PROJECT CARD 2 -->
+        <article class="project-card" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1">
+          <div class="card-image-wrapper">
+            <img src="assets/images/project-2.jpg" alt="Echoes of Silence" class="card-image">
+            <div class="play-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+            </div>
+          </div>
+          <div class="card-info">
+            <h3 class="card-title">Echoes of Silence</h3>
+            <p class="card-meta">Cinematographer &nbsp;|&nbsp; 2023</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO MODAL (Put this at the very bottom of your <body>) -->
+  <div id="video-modal" class="video-modal">
+    <div class="modal-content">
+      <button class="close-modal" aria-label="Close video">&times;</button>
+      <div class="video-container" id="video-container"></div>
+    </div>
+  </div>
+
+  <!-- contact-->
+  <section id="contact" class="contact-section">
+    <h2>Get In Touch</h2>
+    <!-- Your contact info/form goes here -->
 
     <script src="JS/script.js" defer></script>
-  </body>
+    <!--video modal -->
+    <div id="video-modal" class="video-modal">
+      <div class="modal-content">
+        <button class="close-modal" aria-label="Close video">&times;</button>
+        <div class="video-container" id="video-container">
+          <!-- The iframe will be injected here by JavaScript -->
+        </div>
+      </div>
+    </div>
+</body>
+
 </html>
