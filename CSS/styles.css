@@ -36,7 +36,7 @@ html {
 
 body {
     /* background-color: var(--cl-background); */
-     background-color: var(--cl-background);
+    background-color: var(--cl-background);
     color: var(--cl-primary);
     font-family: var(--ff-body);
     line-height: 1.6;
@@ -152,8 +152,12 @@ body {
     }
 }
 
-.section {
+section {
     scroll-margin-top: 80px;
+}
+
+#home {
+    scroll-margin-top: 0px;
 }
 
 /* home page */
@@ -164,7 +168,7 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-
+    padding-top: 80px;
     background: url('../assets/images/hero-bg.jpg') center/cover no-repeat;
     background-color: var(--cl-background);
 }
