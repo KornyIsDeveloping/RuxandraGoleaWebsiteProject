@@ -432,7 +432,7 @@ body {
     margin-left: 4px;
 }
 
-/* Video Modal */
+/* video modal */
 /* full-screen overlay */
 #video-modal {
     position: fixed;
@@ -512,8 +512,6 @@ body {
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    
-    /* Hide when modal is closed */
     opacity: 0;
     visibility: hidden;
 }
@@ -535,10 +533,218 @@ body.modal-open {
     overflow: hidden;
 }
 
-/* Mobile adjustment */
+/* mobile resposiveness */
 @media (max-width: 768px) {
     #video-modal {
         padding: 0.75rem;
+    }
+    
+    .close-modal {
+        top: 1rem;
+        right: 1rem;
+        width: 38px;
+        height: 38px;
+    }
+}
+
+/* video modal */
+#video-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+#video-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+#video-modal::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 5, 5, 0.92);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.modal-content {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1090px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+    transform: scale(0.92);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    
+    /* custom scrollbar for dark theme */
+    scrollbar-width: thin;
+    scrollbar-color: var(--cl-highlight) #1a1a1a;
+}
+
+.modal-content::-webkit-scrollbar {
+    width: 6px;
+}
+.modal-content::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+.modal-content::-webkit-scrollbar-thumb {
+    background: var(--cl-highlight);
+    border-radius: 3px;
+}
+
+#video-modal.active .modal-content {
+    transform: scale(1);
+}
+
+/* video container */
+#video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#video-container iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* film Info Section */
+.modal-info {
+    padding: 2rem 2.5rem 2.5rem;
+}
+
+.modal-info-header {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1.5rem;
+}
+
+.modal-title {
+    font-family: var(--ff-main);
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    color: var(--cl-primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+}
+
+.modal-meta {
+    font-family: var(--ff-main);
+    font-size: 0.95rem;
+    color: var(--cl-secondary);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.modal-role {
+    color: var(--cl-primary);
+}
+
+.modal-divider {
+    color: var(--cl-highlight);
+    margin: 0 0.75rem;
+}
+
+.modal-description {
+    font-family: var(--ff-main);
+    font-size: 1rem;
+    color: #B0B0B0;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+}
+
+.modal-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--ff-main);
+    font-size: 0.9rem;
+    color: var(--cl-primary);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding: 0.75rem 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.modal-link:hover {
+    background: var(--cl-highlight);
+    border-color: var(--cl-highlight);
+    color: var(--cl-primary);
+}
+
+/* close button */
+.close-modal {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 2001;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--cl-primary);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+#video-modal.active ~ .close-modal,
+.close-modal.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.close-modal:hover {
+    background: var(--cl-highlight);
+    border-color: var(--cl-highlight);
+    transform: rotate(90deg);
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+/* mobile resposiveness */
+@media (max-width: 768px) {
+    #video-modal {
+        padding: 0.75rem;
+        align-items: flex-start;
+        padding-top: 4rem;
+    }
+    
+    .modal-content {
+        max-height: calc(100vh - 5rem);
+    }
+    
+    .modal-info {
+        padding: 1.5rem;
     }
     
     .close-modal {

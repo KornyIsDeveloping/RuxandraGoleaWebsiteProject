@@ -55,11 +55,76 @@ document.addEventListener('DOMContentLoaded', () => {
 // });
 
 // ===== PORTFOLIO CARD / MODAL LOGIC =====
+// document.addEventListener('DOMContentLoaded', () => {
+//     const modal = document.getElementById('video-modal');
+//     const videoContainer = document.getElementById('video-container');
+//     const closeBtn = document.querySelector('.close-modal');
+//     const projectCards = document.querySelectorAll('.project-card');
+
+//     // Open Modal
+//     projectCards.forEach(card => {
+//         card.addEventListener('click', () => {
+//             const videoUrl = card.getAttribute('data-video');
+            
+//             // Inject the iframe
+//             videoContainer.innerHTML = `
+//                 <iframe 
+//                     src="${videoUrl}?autoplay=1&rel=0" 
+//                     allow="autoplay; encrypted-media; fullscreen" 
+//                     allowfullscreen>
+//                 </iframe>
+//             `;
+            
+//             modal.classList.add('active');
+//             closeBtn.classList.add('visible');
+//             document.body.classList.add('modal-open');
+//         });
+//     });
+
+//     // Close Modal function
+//     const closeModal = () => {
+//         modal.classList.remove('active');
+//         closeBtn.classList.remove('visible');
+//         document.body.classList.remove('modal-open');
+        
+//         // Wait for fade-out animation, then clear the iframe (stops audio)
+//         setTimeout(() => { 
+//             videoContainer.innerHTML = ''; 
+//         }, 400);
+//     };
+
+//     // Close via X button
+//     closeBtn.addEventListener('click', closeModal);
+
+//     // Close via backdrop click (clicking the dark area)
+//     modal.addEventListener('click', (e) => {
+//         // Only close if clicking the backdrop itself, not the video
+//         if (e.target === modal || e.target.tagName === 'IFRAME' === false && !videoContainer.contains(e.target)) {
+//             closeModal();
+//         }
+//     });
+
+//     // Close via Escape key
+//     document.addEventListener('keydown', (e) => {
+//         if (e.key === 'Escape' && modal.classList.contains('active')) {
+//             closeModal();
+//         }
+//     });
+// });
+
+// ===== PORTFOLIO CARD / MODAL LOGIC =====
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('video-modal');
     const videoContainer = document.getElementById('video-container');
     const closeBtn = document.querySelector('.close-modal');
     const projectCards = document.querySelectorAll('.project-card');
+    
+    // Info elements
+    const modalTitle = document.getElementById('modal-title');
+    const modalRole = document.getElementById('modal-role');
+    const modalYear = document.getElementById('modal-year');
+    const modalDescription = document.getElementById('modal-description');
+    const modalLink = document.getElementById('modal-link');
 
     // Open Modal
     projectCards.forEach(card => {
@@ -75,39 +140,37 @@ document.addEventListener('DOMContentLoaded', () => {
                 </iframe>
             `;
             
+            // Populate film info from data attributes
+            modalTitle.textContent = card.getAttribute('data-title') || 'Untitled';
+            modalRole.textContent = card.getAttribute('data-role') || 'Cinematographer';
+            modalYear.textContent = card.getAttribute('data-year') || '';
+            modalDescription.textContent = card.getAttribute('data-description') || 'Description coming soon.';
+            
+            const linkUrl = card.getAttribute('data-link');
+            if (linkUrl) {
+                modalLink.href = linkUrl;
+                modalLink.style.display = 'inline-flex';
+            } else {
+                modalLink.style.display = 'none';
+            }
+            
             modal.classList.add('active');
             closeBtn.classList.add('visible');
             document.body.classList.add('modal-open');
         });
     });
 
-    // Close Modal function
+    // Close Modal
     const closeModal = () => {
         modal.classList.remove('active');
         closeBtn.classList.remove('visible');
         document.body.classList.remove('modal-open');
-        
-        // Wait for fade-out animation, then clear the iframe (stops audio)
-        setTimeout(() => { 
-            videoContainer.innerHTML = ''; 
-        }, 400);
+        setTimeout(() => { videoContainer.innerHTML = ''; }, 400);
     };
 
-    // Close via X button
     closeBtn.addEventListener('click', closeModal);
-
-    // Close via backdrop click (clicking the dark area)
-    modal.addEventListener('click', (e) => {
-        // Only close if clicking the backdrop itself, not the video
-        if (e.target === modal || e.target.tagName === 'IFRAME' === false && !videoContainer.contains(e.target)) {
-            closeModal();
-        }
-    });
-
-    // Close via Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('active')) {
-            closeModal();
-        }
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { 
+        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal(); 
     });
 });

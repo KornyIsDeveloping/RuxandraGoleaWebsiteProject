@@ -1,143 +1,251 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@300;400&family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Inter:wght@300;400&family=Bebas+Neue&display=swap"
-    rel="stylesheet" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/styles.css" />
+    <title>Portfolio Website</title>
+  </head>
 
-  <link rel="stylesheet" href="CSS/styles.css" />
-  <title>Portfolio Website</title>
-</head>
+  <body>
+    <!-- navbar -->
+    <nav class="navbar">
+      <a href="#home" class="logo">Ruxandra Golea</a>
 
-<body>
-  <!-- navbar -->
-  <nav class="navbar">
-    <a href="#home" class="logo">Ruxandra Golea</a>
+      <ul class="nav-links">
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#portfolio">PORTFOLIO</a></li>
+        <!-- <li><a href="#about">BTS PHOTOS</a></li> -->
+        <!-- <li><a href="#about">CERTIFICATES</a></li> -->
+        <li><a href="#about">ABOUT</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
 
-    <ul class="nav-links">
-      <li><a href="#home">HOME</a></li>
-      <li><a href="#portfolio">PORTFOLIO</a></li>
-      <!-- <li><a href="#about">BTS PHOTOS</a></li> -->
-      <!-- <li><a href="#about">CERTIFICATES</a></li> -->
-      <li><a href="#about">ABOUT</a></li>
-      <li><a href="#contact">CONTACT</a></li>
-    </ul>
-
-    <div class="hamburger">
-      <span class="bar"></span>
-      <span class="bar"></span>
-      <span class="bar"></span>
-    </div>
-  </nav>
-
-  <!-- home page (hero section)-->
-  <section class="hero">
-    <!-- background image -->
-    <div class="hero-overlay"></div>
-
-    <div class="hero-content">
-      <h1 class="hero-headline">
-        Storytelling Through <span class="accent">Cinema</span>
-      </h1>
-
-      <p class="hero-subheadline">
-        Film student passionate about creating compelling visual narratives
-        that inspire, challenge, and entertain audiences worldwide.
-      </p>
-
-      <div class="hero-cta">
-        <a href="#work" class="btn btn-primary">View My Work</a>
-        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
       </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- portfolio -->
-  <section id="portfolio" class="portfolio-section">
-    <div class="container">
+    <!-- home page (hero section)-->
+    <section class="hero">
+      <!-- background image -->
+      <div class="hero-overlay"></div>
 
-      <div class="section-header">
-        <h2 class="section-title">Short Films</h2>
-        <p class="section-subtitle">A collection of recent cinematography projects</p>
-      </div>
+      <div class="hero-content">
+        <h1 class="hero-headline">
+          Storytelling Through <span class="accent">Cinema</span>
+        </h1>
 
-      <div class="projects-grid">
+        <p class="hero-subheadline">
+          Film student passionate about creating compelling visual narratives
+          that inspire, challenge, and entertain audiences worldwide.
+        </p>
 
-        <!-- project card 1 -->
-        <article class="project-card" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1">
-          <div class="card-image-wrapper">
-            <!-- We added a background color in CSS, so this looks fine even if image is missing -->
-            <img src="assets/images/IM_FINE_POSTER.jpg" alt="I'M FINE" class="card-image">
-            <div class="play-btn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-              </svg>
-            </div>
-          </div>
-          <div class="card-info">
-            <h3 class="card-title">I'M FINE</h3>
-            <p class="card-meta">Director of Photography &nbsp;|&nbsp; 2026</p>
-          </div>
-        </article>
-
-        <!-- PROJECT CARD 2 -->
-        <article class="project-card" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1">
-          <div class="card-image-wrapper">
-            <img src="assets/images/WhereIsMyHusband.jpg" alt="Where Is My Husband?" class="card-image">
-            <div class="play-btn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                stroke-linejoin="round">
-                <polygon points="5 3 19 12 5 21 5 3"></polygon>
-              </svg>
-            </div>
-          </div>
-          <div class="card-info">
-            <h3 class="card-title">Where Is My Husband?</h3>
-            <p class="card-meta">Cinematographer &nbsp;|&nbsp; 2023</p>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- VIDEO MODAL (Put this at the very bottom of your <body>) -->
-  <!-- <div id="video-modal" class="video-modal">
-    <div class="modal-content">
-      <button class="close-modal" aria-label="Close video">&times;</button>
-      <div class="video-container" id="video-container"></div>
-    </div>
-  </div>
-
-   contact
-  <section id="contact" class="contact-section">
-    <h2>Get In Touch</h2>
-     Your contact info/form goes here -->
-
-    <script src="JS/script.js" defer></script>
-    <!--video modal 
-    <div id="video-modal" class="video-modal">
-      <div class="modal-content">
-        <button class="close-modal" aria-label="Close video">&times;</button>
-        <div class="video-container" id="video-container">
-           The iframe will be injected here by JavaScript 
+        <div class="hero-cta">
+          <a href="#work" class="btn btn-primary">View My Work</a>
+          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
         </div>
       </div>
-    </div> -->
-    <!-- VIDEO MODAL (place once, at the bottom of the body) -->
-<div id="video-modal">
-    <div id="video-container"></div>
-</div>
-<button class="close-modal" aria-label="Close video">✕</button>
-</body>
+    </section>
 
+    <!-- portfolio -->
+    <section id="portfolio" class="portfolio-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Short Films</h2>
+          <p class="section-subtitle">
+            A collection of recent cinematography projects
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <!-- project card 1 -->
+          <article
+            class="project-card"
+            data-video="https://www.youtube.com/embed/JdUQUb_JZuw"
+            data-title="I'M FINE"
+            data-role="Director of Photography"
+            data-year="2026"
+            data-description="A coming-of-age short film exploring friendship, identity, and the masks we wear. Shot on location with natural lighting to capture the raw authenticity of youth."
+            data-link="https://youtube.com/watch?v=YOUR_VIDEO_ID"
+          >
+            <div class="card-image-wrapper">
+              <img
+                src="assets/images/IM_FINE_POSTER.jpg"
+                alt="I'm Fine poster"
+                class="card-image"
+              />
+              <div class="play-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>I'M FINE</h3>
+              <p>Director of Photography | 2026</p>
+            </div>
+          </article>
+
+          <!-- project card 2 -->
+          <article
+            class="project-card"
+            data-video="https://www.youtube.com/embed/KKiLv77fCw?autoplay=1&t=5s"
+            data-title="Where Is My Husband?"
+            data-role="Cinematographer"
+            data-year="2026"
+            data-description="A psychological thriller exploring isolation and paranoia. The cinematography uses tight framing and low-key lighting to build an atmosphere of mounting dread."
+            data-link="https://youtube.com/watch?v=YOUR_VIDEO_ID_2"
+          >
+            <div class="card-image-wrapper">
+              <img
+                src="assets/images/WhereIsMyHusband.jpg"
+                alt="Where Is My Husband? poster"
+                class="card-image"
+              />
+              <div class="play-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>Where Is My Husband?</h3>
+              <p>Cinematographer | 2026</p>
+            </div>
+          </article>
+           <!-- project card 3 -->
+          <article
+            class="project-card"
+            data-video="https://www.youtube.com/embed/KKiLv77fCw?autoplay=1&t=5s"
+            data-title="I'll Cary Your Love With Me"
+            data-role="Cinematographer"
+            data-year="2026"
+            data-description="A psychological thriller exploring isolation and paranoia. The cinematography uses tight framing and low-key lighting to build an atmosphere of mounting dread."
+            data-link="https://youtube.com/watch?v=YOUR_VIDEO_ID_2"
+          >
+            <div class="card-image-wrapper">
+              <img
+                src="assets/images/photo.jpg"
+                alt="I'll Cary Your Love With Me poster"
+                class="card-image"
+              />
+              <div class="play-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>I'll Cary Your Love With Me</h3>
+              <p>Cinematographer | 2026</p>
+            </div>
+          </article>
+           <!-- project card 4 -->
+          <article
+            class="project-card"
+            data-video="https://www.youtube.com/embed/KKiLv77fCw?autoplay=1&t=5s"
+            data-title="Milkshake"
+            data-role="Cinematographer"
+            data-year="2026"
+            data-description="A psychological thriller exploring isolation and paranoia. The cinematography uses tight framing and low-key lighting to build an atmosphere of mounting dread."
+            data-link="https://youtube.com/watch?v=YOUR_VIDEO_ID_2"
+          >
+            <div class="card-image-wrapper">
+              <img
+                src="assets/images/photo.jpg"
+                alt="Milkshake poster"
+                class="card-image"
+              />
+              <div class="play-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>Milkshake</h3>
+              <p>Cinematographer | 2026</p>
+            </div>
+          </article>
+           <!-- project card 5 -->
+          <article
+            class="project-card"
+            data-video="https://www.youtube.com/embed/KKiLv77fCw?autoplay=1&t=5s"
+            data-title="Bad Blood"
+            data-role="Cinematographer"
+            data-year="2026"
+            data-description="A psychological thriller exploring isolation and paranoia. The cinematography uses tight framing and low-key lighting to build an atmosphere of mounting dread."
+            data-link="https://youtube.com/watch?v=YOUR_VIDEO_ID_2"
+          >
+            <div class="card-image-wrapper">
+              <img
+                src="assets/images/photo.jpg"
+                alt="Bad Blood poster"
+                class="card-image"
+              />
+              <div class="play-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+            <div class="card-info">
+              <h3>Bad Blood</h3>
+              <p>Cinematographer | 2026</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <script src="JS/script.js" defer></script>
+    <div id="video-modal">
+      <div class="modal-content">
+        <button class="close-modal" aria-label="Close video">✕</button>
+
+        <!-- video Player -->
+        <div id="video-container"></div>
+
+        <!-- film Information -->
+        <div class="modal-info">
+          <div class="modal-info-header">
+            <h3 class="modal-title" id="modal-title">Film Title</h3>
+            <div class="modal-meta">
+              <span class="modal-role" id="modal-role">Role</span>
+              <span class="modal-divider">|</span>
+              <span class="modal-year" id="modal-year">Year</span>
+            </div>
+          </div>
+          <p class="modal-description" id="modal-description">
+            A brief description of the film will appear here.
+          </p>
+          <a
+            href="#"
+            class="modal-link"
+            id="modal-link"
+            target="_blank"
+            rel="noopener"
+          >
+            Watch Full Film →
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
