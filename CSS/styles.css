@@ -208,48 +208,6 @@ section {
     text-transform: uppercase;
 }
 
-/*.hero-headline .accent {
-     color: var(--cl-highlight);
-    display: block; 
-    color: var(--cl-highlight);
-    display: inline-block;
-    overflow: hidden;
-    border-right: 0.15em solid var(--cl-highlight);
-    white-space: nowrap;
-    letter-spacing: 0.15em;
-    width: 0;
-    animation: 
-        typing 3.5s steps(6, end) forwards,
-        blink-caret 0.75s step-end infinite;
-    animation-delay: 1s, 1s;
-    vertical-align: baseline
-}
-
-.accent {
-    overflow: hidden; 
-    border-right: 0.15em solid var(--cl-highlight); 
-    white-space: nowrap; 
-    margin: 0 auto;
-    letter-spacing: 0.15em;
-    animation: 
-    typing 3.5s steps(40, end),
-    blink-caret 0.75s step-end infinite;
-
-    @keyframes typing {
-    from { width: 0; }
-    to { width: 6.5ch; }
-}
-
-@keyframes blink-caret {
-    from, to { border-color: transparent; }
-    50% { border-color: var(--cl-highlight); }
-}
-} */
-
-
-/* =========================================
-   HERO ACCENT (Typing Effect for "Cinema")
-   ========================================= */
 .hero-headline .accent {
     color: var(--cl-highlight);
     display: inline-block;
@@ -265,7 +223,6 @@ section {
     animation-delay: 1s, 1s;
 }
 
-/* Keyframes MUST be at the root level */
 @keyframes typing {
     from { width: 0; }
     to { width: 6.5ch; }
@@ -275,17 +232,6 @@ section {
     from, to { border-color: transparent; }
     50% { border-color: var(--cl-highlight); }
 }
-
-
-
-
-
-
-
-
-
-
-
 
 .hero-subheadline {
     font-family: var(--ff-main);
@@ -327,11 +273,14 @@ section {
     color: var(--cl-primary);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--cl-highlight);
 }
 
 .btn-primary:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--cl-highlight);
+}
+
+.btn-primary:hover {
     border-color: rgba(255, 255, 255, 0.3);
 }
 
@@ -340,11 +289,14 @@ section {
     color: var(--cl-primary);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--cl-highlight);
 }
 
 .btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--cl-highlight);
+}
+
+.btn-secondary:hover {
     border-color: rgba(255, 255, 255, 0.3);
 }
 
