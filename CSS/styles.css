@@ -520,7 +520,6 @@ section {
     transform: rotate(90deg);
 }
 
-/* Prevent body scroll when modal is open */
 body.modal-open {
     overflow: hidden;
 }
@@ -537,20 +536,6 @@ body.modal-open {
         width: 38px;
         height: 38px;
     }
-}
-
-/* video modal */
-#video-modal {
-    position: fixed;
-    inset: 0;
-    z-index: 2000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
 #video-modal.active {
@@ -580,7 +565,6 @@ body.modal-open {
     transform: scale(0.92);
     transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
     
-    /* custom scrollbar for dark theme */
     scrollbar-width: thin;
     scrollbar-color: var(--cl-highlight) #1a1a1a;
 }
@@ -617,7 +601,7 @@ body.modal-open {
     border: none;
 }
 
-/* film Info Section */
+/* film info */
 .modal-info {
     padding: 2rem 2.5rem 2.5rem;
 }
@@ -683,44 +667,6 @@ body.modal-open {
     background: var(--cl-highlight);
     border-color: var(--cl-highlight);
     color: var(--cl-primary);
-}
-
-/* close button */
-.close-modal {
-    position: fixed;
-    top: 1.5rem;
-    right: 1.5rem;
-    z-index: 2001;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: var(--cl-primary);
-    font-size: 1.1rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    opacity: 0;
-    visibility: hidden;
-}
-
-#video-modal.active ~ .close-modal,
-.close-modal.visible {
-    opacity: 1;
-    visibility: visible;
-}
-
-.close-modal:hover {
-    background: var(--cl-highlight);
-    border-color: var(--cl-highlight);
-    transform: rotate(90deg);
-}
-
-body.modal-open {
-    overflow: hidden;
 }
 
 /* mobile resposiveness */
@@ -789,9 +735,7 @@ body.modal-open {
     color: var(--cl-highlight);
 }
 
-/* =========================================
-   ABOUT SECTION (Sticky + Mosaic)
-   ========================================= */
+/* about */
 .about-section {
     padding: 6rem 1.5rem;
     background-color: var(--cl-background);
@@ -847,13 +791,13 @@ body.modal-open {
     letter-spacing: 0.5px;
 }
 
-/* The Mosaic Grid */
+/* mosaic grid */
 .about-gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: 140px;          /* Base tile height */
-    grid-auto-flow: dense;          /* Fills gaps for asymmetry */
-    gap: 0.75rem;                   /* Tight, gallery-like spacing */
+    grid-auto-rows: 140px;          
+    grid-auto-flow: dense;          
+    gap: 0.75rem;                 
 }
 
 .bts-photo {
@@ -871,13 +815,10 @@ body.modal-open {
     transform: scale(1.02);
 }
 
-/* Asymmetric tile variants */
 .bts-photo.tall { grid-row: span 2; }
 .bts-photo.wide { grid-column: span 2; }
 
-/* =========================================
-   IMAGE LIGHTBOX MODAL
-   ========================================= */
+/* image lightbox */
 #image-modal {
     position: fixed;
     inset: 0;
@@ -957,9 +898,7 @@ body.modal-open {
 .img-next { right: 1.5rem; }
 .img-nav:hover { background: var(--cl-highlight); }
 
-/* =========================================
-   RESPONSIVE
-   ========================================= */
+/* mobile resposiveness */
 @media (max-width: 900px) {
     .about-container { grid-template-columns: 1fr; gap: 3rem; }
     .about-text { position: static; top: auto; }
@@ -967,4 +906,94 @@ body.modal-open {
 @media (max-width: 600px) {
     .about-gallery { grid-auto-rows: 110px; }
     .bts-photo.wide { grid-column: span 2; }
+}
+
+/* =========================================
+   CONTACT SECTION
+   ========================================= */
+.contact-section {
+    padding: 8rem 1.5rem 4rem;
+    background-color: var(--cl-background);
+    text-align: center;
+}
+
+.contact-title {
+    font-family: var(--ff-main);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: var(--cl-primary);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
+}
+
+.contact-subtitle {
+    font-family: var(--ff-main);
+    color: var(--cl-secondary);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+}
+
+.contact-email {
+    display: inline-block;
+    font-family: var(--ff-main);
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    color: var(--cl-primary);
+    text-decoration: none;
+    border-bottom: 2px solid var(--cl-highlight);
+    padding-bottom: 5px;
+    transition: all 0.3s ease;
+    margin-bottom: 4rem;
+}
+
+.contact-email:hover {
+    color: var(--cl-highlight);
+    border-color: var(--cl-primary);
+}
+
+.contact-socials {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 6rem;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--cl-secondary);
+    text-decoration: none;
+    font-family: var(--ff-main);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease;
+}
+
+.social-link svg {
+    stroke: var(--cl-secondary);
+    transition: stroke 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--cl-primary);
+}
+
+.social-link:hover svg {
+    stroke: var(--cl-highlight);
+}
+
+.site-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 2rem;
+}
+
+.site-footer p {
+    font-family: var(--ff-main);
+    font-size: 0.8rem;
+    color: #555;
+    letter-spacing: 1px;
 }
