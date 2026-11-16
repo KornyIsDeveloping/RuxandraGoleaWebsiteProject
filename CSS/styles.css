@@ -74,7 +74,7 @@ body {
 }
 
 .logo:hover {
-    opacity: 0.7;
+    color: var(--cl-highlight);
 }
 
 /* desktop links */
@@ -95,20 +95,8 @@ body {
     transition: color 0.3s ease;
 }
 
-/* underline effect */
-.nav-links a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: -4px;
-    left: 0;
-    background-color: var(--cl-highlight);
-    transition: width 0.3s ease;
-}
-
-.nav-links a:hover::after {
-    width: 100%;
+.nav-links a:hover {
+    color: var(--cl-highlight);
 }
 
 /* hamburger menu */
