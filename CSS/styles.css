@@ -758,3 +758,46 @@ body.modal-open {
         height: 38px;
     }
 }
+
+/* coming soon message */
+.project-card.coming-soon {
+    cursor: default; 
+}
+
+.project-card.coming-soon:hover .card-image-wrapper {
+    transform: none; /* Removes the upward lift */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
+}
+
+.project-card.coming-soon .card-image {
+    filter: blur(6px) brightness(0.5); 
+    transform: none !important; 
+}
+
+
+.project-card.coming-soon .play-btn {
+    display: none;
+}
+
+
+.coming-soon-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.coming-soon-overlay span {
+    font-family: var(--ff-main);
+    font-size: 1rem;
+    color: var(--cl-primary);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.75rem 1.5rem;
+    border: 1px solid var(--cl-highlight); 
+    border-radius: 4px;
+    backdrop-filter: blur(4px);
+}
