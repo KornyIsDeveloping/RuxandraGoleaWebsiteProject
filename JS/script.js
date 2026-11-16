@@ -1,4 +1,4 @@
-// navbar
+//navbar
 document.addEventListener('DOMContentLoaded', () => {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
@@ -25,135 +25,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-//porfolio card logic
-// document.addEventListener('DOMContentLoaded', () => {
-//     const modal = document.getElementById('video-modal');
-//     const videoContainer = document.getElementById('video-container');
-//     const closeBtn = document.querySelector('.close-modal');
-//     const projectCards = document.querySelectorAll('.project-card');
-
-//     // Open Modal
-//     projectCards.forEach(card => {
-//         card.addEventListener('click', () => {
-//             const videoUrl = card.getAttribute('data-video');
-//             videoContainer.innerHTML = `<iframe src="${videoUrl}" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
-//             modal.classList.add('active');
-//             document.body.style.overflow = 'hidden';
-//         });
-//     });
-
-//     // Close Modal
-//     const closeModal = () => {
-//         modal.classList.remove('active');
-//         document.body.style.overflow = '';
-//         setTimeout(() => { videoContainer.innerHTML = ''; }, 400);
-//     };
-
-//     closeBtn.addEventListener('click', closeModal);
-//     modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-//     document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('active')) closeModal(); });
-// });
-
-// ===== PORTFOLIO CARD / MODAL LOGIC =====
-// document.addEventListener('DOMContentLoaded', () => {
-//     const modal = document.getElementById('video-modal');
-//     const videoContainer = document.getElementById('video-container');
-//     const closeBtn = document.querySelector('.close-modal');
-//     const projectCards = document.querySelectorAll('.project-card');
-
-//     // Open Modal
-//     projectCards.forEach(card => {
-//         card.addEventListener('click', () => {
-//             const videoUrl = card.getAttribute('data-video');
-            
-//             // Inject the iframe
-//             videoContainer.innerHTML = `
-//                 <iframe 
-//                     src="${videoUrl}?autoplay=1&rel=0" 
-//                     allow="autoplay; encrypted-media; fullscreen" 
-//                     allowfullscreen>
-//                 </iframe>
-//             `;
-            
-//             modal.classList.add('active');
-//             closeBtn.classList.add('visible');
-//             document.body.classList.add('modal-open');
-//         });
-//     });
-
-//     // Close Modal function
-//     const closeModal = () => {
-//         modal.classList.remove('active');
-//         closeBtn.classList.remove('visible');
-//         document.body.classList.remove('modal-open');
-        
-//         // Wait for fade-out animation, then clear the iframe (stops audio)
-//         setTimeout(() => { 
-//             videoContainer.innerHTML = ''; 
-//         }, 400);
-//     };
-
-//     // Close via X button
-//     closeBtn.addEventListener('click', closeModal);
-
-//     // Close via backdrop click (clicking the dark area)
-//     modal.addEventListener('click', (e) => {
-//         // Only close if clicking the backdrop itself, not the video
-//         if (e.target === modal || e.target.tagName === 'IFRAME' === false && !videoContainer.contains(e.target)) {
-//             closeModal();
-//         }
-//     });
-
-//     // Close via Escape key
-//     document.addEventListener('keydown', (e) => {
-//         if (e.key === 'Escape' && modal.classList.contains('active')) {
-//             closeModal();
-//         }
-//     });
-// });
-
-// ===== PORTFOLIO CARD / MODAL LOGIC =====
+//portfolio card logic
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('video-modal');
     const videoContainer = document.getElementById('video-container');
     const closeBtn = document.querySelector('.close-modal');
     const projectCards = document.querySelectorAll('.project-card');
     
-    // Info elements
     const modalTitle = document.getElementById('modal-title');
     const modalRole = document.getElementById('modal-role');
     const modalYear = document.getElementById('modal-year');
     const modalDescription = document.getElementById('modal-description');
-    const modalLink = document.getElementById('modal-link');
 
-    // Open Modal
+    //open modal
     projectCards.forEach(card => {
         if (card.classList.contains('coming-soon')) return;
+
         card.addEventListener('click', () => {
             const videoUrl = card.getAttribute('data-video');
             
-            // Inject the iframe
-            videoContainer.innerHTML = `
-                <iframe 
-                    src="${videoUrl}?autoplay=1&rel=0" 
-                    allow="autoplay; encrypted-media; fullscreen" 
-                    allowfullscreen>
-                </iframe>
-            `;
+            videoContainer.innerHTML = `<iframe src="${videoUrl}?autoplay=1&rel=0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
             
-            // Populate film info from data attributes
             modalTitle.textContent = card.getAttribute('data-title') || 'Untitled';
             modalRole.textContent = card.getAttribute('data-role') || 'Cinematographer';
             modalYear.textContent = card.getAttribute('data-year') || '';
             modalDescription.textContent = card.getAttribute('data-description') || 'Description coming soon.';
-            
-            const linkUrl = card.getAttribute('data-link');
-            if (linkUrl) {
-                modalLink.href = linkUrl;
-                modalLink.style.display = 'inline-flex';
-            } else {
-                modalLink.style.display = 'none';
-            }
             
             modal.classList.add('active');
             closeBtn.classList.add('visible');
@@ -161,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Close Modal
+    //close modal
     const closeModal = () => {
         modal.classList.remove('active');
         closeBtn.classList.remove('visible');
@@ -171,7 +67,53 @@ document.addEventListener('DOMContentLoaded', () => {
 
     closeBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-    document.addEventListener('keydown', (e) => { 
-        if (e.key === 'Escape' && modal.classList.contains('active')) closeModal(); 
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('active')) closeModal(); });
+});
+
+// ===== IMAGE LIGHTBOX (About Gallery) =====
+document.addEventListener('DOMContentLoaded', () => {
+    const imgModal = document.getElementById('image-modal');
+    const imgFull = document.getElementById('img-full');
+    const imgCaption = document.getElementById('img-caption');
+    const imgClose = document.querySelector('.img-close');
+    const imgPrev = document.querySelector('.img-prev');
+    const imgNext = document.querySelector('.img-next');
+    const photos = Array.from(document.querySelectorAll('.bts-photo'));
+    let currentIndex = 0;
+
+    const showImage = (index) => {
+        currentIndex = (index + photos.length) % photos.length; // wraps around
+        const photo = photos[currentIndex];
+        imgFull.src = photo.src.replace('w=800', 'w=1600');
+        imgCaption.textContent = photo.getAttribute('data-caption') || '';
+    };
+
+    photos.forEach((photo, i) => {
+        photo.addEventListener('click', () => {
+            showImage(i);
+            imgModal.classList.add('active');
+            document.body.classList.add('modal-open');
+        });
+    });
+
+    const closeImgModal = () => {
+        imgModal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+    };
+
+    imgClose.addEventListener('click', closeImgModal);
+    imgPrev.addEventListener('click', () => showImage(currentIndex - 1));
+    imgNext.addEventListener('click', () => showImage(currentIndex + 1));
+
+    imgModal.addEventListener('click', (e) => {
+        if (e.target === imgModal) closeImgModal();
+    });
+
+    // Keyboard support
+    document.addEventListener('keydown', (e) => {
+        if (!imgModal.classList.contains('active')) return;
+        if (e.key === 'Escape') closeImgModal();
+        if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+        if (e.key === 'ArrowRight') showImage(currentIndex + 1);
     });
 });

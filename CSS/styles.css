@@ -788,3 +788,183 @@ body.modal-open {
     font-size: 1.2rem;
     color: var(--cl-highlight);
 }
+
+/* =========================================
+   ABOUT SECTION (Sticky + Mosaic)
+   ========================================= */
+.about-section {
+    padding: 6rem 1.5rem;
+    background-color: var(--cl-background);
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr; /* Asymmetric split */
+    gap: 4rem;
+    align-items: start;
+}
+
+.about-text {
+    position: sticky;
+    top: 120px; /* Sits below your fixed navbar */
+    height: fit-content;
+}
+
+.about-lead {
+    font-family: var(--ff-main);
+    font-size: 1.35rem;
+    color: var(--cl-primary);
+    margin: 2rem 0 1.5rem;
+    line-height: 1.4;
+    border-left: 2px solid var(--cl-highlight);
+    padding-left: 1.5rem;
+}
+
+.about-bio {
+    font-family: var(--ff-main);
+    color: var(--cl-secondary);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}
+
+.toolkit-title {
+    font-family: var(--ff-main);
+    font-size: 1rem;
+    color: var(--cl-highlight);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.toolkit-list { list-style: none; padding: 0; }
+.toolkit-list li {
+    font-family: var(--ff-main);
+    color: var(--cl-primary);
+    font-size: 0.9rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    letter-spacing: 0.5px;
+}
+
+/* The Mosaic Grid */
+.about-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 140px;          /* Base tile height */
+    grid-auto-flow: dense;          /* Fills gaps for asymmetry */
+    gap: 0.75rem;                   /* Tight, gallery-like spacing */
+}
+
+.bts-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+    cursor: pointer;
+    filter: grayscale(25%) contrast(1.1);
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.bts-photo:hover {
+    filter: grayscale(0%) contrast(1);
+    transform: scale(1.02);
+}
+
+/* Asymmetric tile variants */
+.bts-photo.tall { grid-row: span 2; }
+.bts-photo.wide { grid-column: span 2; }
+
+/* =========================================
+   IMAGE LIGHTBOX MODAL
+   ========================================= */
+#image-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 2100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: rgba(5, 5, 5, 0.92);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+#image-modal.active { opacity: 1; visibility: visible; }
+
+.img-stage {
+    max-width: 1000px;
+    width: 100%;
+    text-align: center;
+    transform: scale(0.92);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+#image-modal.active .img-stage { transform: scale(1); }
+
+#img-full {
+    max-width: 100%;
+    max-height: 75vh;
+    border-radius: 4px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+}
+
+.img-caption {
+    font-family: var(--ff-main);
+    color: var(--cl-secondary);
+    margin-top: 1.25rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.img-close {
+    position: fixed;
+    top: 1.5rem; right: 1.5rem;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--cl-primary);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+.img-close:hover {
+    background: var(--cl-highlight);
+    transform: rotate(90deg);
+}
+
+.img-nav {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--cl-primary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+.img-prev { left: 1.5rem; }
+.img-next { right: 1.5rem; }
+.img-nav:hover { background: var(--cl-highlight); }
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 900px) {
+    .about-container { grid-template-columns: 1fr; gap: 3rem; }
+    .about-text { position: static; top: auto; }
+}
+@media (max-width: 600px) {
+    .about-gallery { grid-auto-rows: 110px; }
+    .bts-photo.wide { grid-column: span 2; }
+}
