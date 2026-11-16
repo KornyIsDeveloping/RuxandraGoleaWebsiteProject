@@ -96,6 +96,7 @@ body {
 }
 
 .nav-links a:hover {
+    font-size: 1.0rem;
     color: var(--cl-highlight);
 }
 
@@ -163,7 +164,7 @@ section {
 
 .hero-overlay {
     position: absolute;
-    inset: 0; /* Shorthand for top:0, left:0, right:0, bottom:0 */
+    inset: 0; 
     background: linear-gradient(
         to bottom, 
         rgba(5, 5, 5, 0.5) 0%, 
@@ -257,35 +258,29 @@ section {
 }
 
 .btn-primary {
-    background-color: rgba(255, 255, 255, 0.05);
+    /* background-color: rgba(255, 255, 255, 0.05); */
     color: var(--cl-primary);
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--cl-highlight);
+    border: 1px solid var(--cl-highlight); */
 }
 
 .btn-primary:hover {
+    font-size: 1.2rem;
     color: var(--cl-highlight);
-}
-
-.btn-primary:hover {
-    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .btn-secondary {
-    background-color: rgba(255, 255, 255, 0.05);
+    /* background-color: rgba(255, 255, 255, 0.05); */
     color: var(--cl-primary);
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    border: 1px solid var(--cl-highlight);
+    border: 1px solid var(--cl-highlight); */
 }
 
 .btn-secondary:hover {
+    font-size: 1.2rem;
     color: var(--cl-highlight);
-}
-
-.btn-secondary:hover {
-    border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* mobile resposiveness */
