@@ -128,9 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Open Modal
     projectCards.forEach(card => {
+        if (card.classList.contains('coming-soon')) return;
         card.addEventListener('click', () => {
-            // ADD THIS LINE: Skip the card if it has the 'coming-soon' class
-            if (card.classList.contains('coming-soon')) return; 
             const videoUrl = card.getAttribute('data-video');
             
             // Inject the iframe

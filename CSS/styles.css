@@ -415,7 +415,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid var(--cl-highlight);
     border-radius: 50%;
     background: rgba(0, 0, 0, 0.4);
     backdrop-filter: blur(4px);
@@ -759,45 +759,57 @@ body.modal-open {
     }
 }
 
-/* coming soon message */
+/* =========================================
+   COMING SOON CARD OVERRIDES
+   ========================================= */
+
+/* 1. Remove the pointer cursor so it doesn't look clickable */
 .project-card.coming-soon {
-    cursor: default; 
+  cursor: default;
 }
 
+/* 2. Disable the hover lift and shadow change */
 .project-card.coming-soon:hover .card-image-wrapper {
-    transform: none; /* Removes the upward lift */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); 
+  transform: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
+/* 3. Blur and darken the poster image, prevent zoom */
 .project-card.coming-soon .card-image {
-    filter: blur(6px) brightness(0.5); 
-    transform: none !important; 
+  filter: blur(6px) brightness(0.4);
+  transform: none !important;
 }
 
-
+/* 4. Hide the play button completely */
 .project-card.coming-soon .play-btn {
-    display: none;
+  display: none;
 }
 
-
+/* 5. Style the "Coming Soon" Badge */
 .coming-soon-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
 }
 
 .coming-soon-overlay span {
-    font-family: var(--ff-main);
-    font-size: 1rem;
-    color: var(--cl-primary);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    background: rgba(0, 0, 0, 0.6);
-    padding: 0.75rem 1.5rem;
-    border: 1px solid var(--cl-highlight); 
-    border-radius: 4px;
-    backdrop-filter: blur(4px);
+  font-family: var(--ff-main);
+  font-size: 0.9rem;
+  color: var(--cl-primary);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  /* background: rgba(10, 10, 10, 0.7);
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--cl-highlight); 
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px); */
+}
+
+span:hover {
+    font-size: 1.2rem;
+    color: var(--cl-highlight);
 }
