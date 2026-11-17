@@ -321,21 +321,18 @@ section {
     }
 }
 
-/* =========================================
-   MOBILE CTA BUTTONS — SINGLE LINE
-   ========================================= */
 @media (max-width: 768px) {
     .hero-cta {
-        gap: 0.75rem; /* Tighter gap between buttons */
+        gap: 0.75rem; 
     }
 
     .btn {
-        font-size: 0.7rem; /* Smaller font so text fits on one line */
-        padding: 0.75rem 1rem; /* Less padding for compact look */
-        max-width: none; /* Remove the 280px cap */
-        width: auto; /* Let them shrink to fit content */
-        white-space: nowrap; /* Force text to stay on one line */
-        letter-spacing: 1px; /* Slightly tighter letter spacing */
+        font-size: 0.7rem; 
+        padding: 0.75rem 1rem; 
+        max-width: none; 
+        width: auto; 
+        white-space: nowrap; 
+        letter-spacing: 1px; 
     }
 }
 
