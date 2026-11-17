@@ -321,6 +321,29 @@ section {
     }
 }
 
+/* =========================================
+   MOBILE CTA BUTTONS — SINGLE LINE
+   ========================================= */
+@media (max-width: 768px) {
+    .hero-cta {
+        gap: 0.75rem; /* Tighter gap between buttons */
+    }
+
+    .btn {
+        font-size: 0.7rem; /* Smaller font so text fits on one line */
+        padding: 0.75rem 1rem; /* Less padding for compact look */
+        max-width: none; /* Remove the 280px cap */
+        width: auto; /* Let them shrink to fit content */
+        white-space: nowrap; /* Force text to stay on one line */
+        letter-spacing: 1px; /* Slightly tighter letter spacing */
+    }
+}
+
+
+
+
+
+
 /* portfolio page - card*/
 .portfolio-section {
     padding: 6rem 1.5rem;
@@ -876,6 +899,7 @@ body.modal-open {
     transition: all 0.3s ease;
     z-index: 2;
 }
+
 .img-close:hover {
     background: var(--cl-highlight);
     transform: rotate(90deg);
@@ -909,9 +933,100 @@ body.modal-open {
     .bts-photo.wide { grid-column: span 2; }
 }
 
-/* =========================================
-   CONTACT SECTION
-   ========================================= */
+/* other projects */
+.other-projects {
+    margin-top: 6rem;
+    padding-top: 3rem;
+}
+
+.subsection-title {
+    font-family: var(--ff-main);
+    font-size: 1.53rem;
+    color: var(--cl-secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2.5rem;
+}
+
+.secondary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 2rem;
+}
+
+.secondary-card {
+    cursor: pointer;
+}
+
+.sec-img-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16; 
+    overflow: hidden;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+    margin-bottom: 1rem;
+}
+
+.sec-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: opacity 0.4s ease, transform 0.6s ease;
+}
+
+.secondary-card:hover .sec-image {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.sec-info h4 {
+    font-family: var(--ff-main);
+    font-size: 1rem;
+    color: var(--cl-primary);
+    margin-bottom: 0.25rem;
+    transition: color 0.3s ease;
+}
+
+.sec-info p {
+    font-family: var(--ff-main);
+    font-size: 0.85rem;
+    color: var(--cl-secondary);
+}
+
+.secondary-card:hover .sec-info h4 {
+    color: var(--cl-highlight);
+}
+
+@media (max-width: 768px) {
+    .other-projects {
+        text-align: center;
+    }
+
+    .subsection-title {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .secondary-grid {
+        grid-template-columns: repeat(auto-fit, 150px);
+        justify-content: center;
+        gap: 1.25rem;
+    }
+
+    .secondary-card {
+        text-align: center;
+    }
+
+    .sec-info h4,
+    .sec-info p {
+        text-align: center;
+    }
+}
+
+/* contact */
 .contact-section {
     padding: 8rem 1.5rem 4rem;
     background-color: var(--cl-background);
@@ -997,73 +1112,4 @@ body.modal-open {
     font-size: 0.8rem;
     color: #555;
     letter-spacing: 1px;
-}
-
-/* other projects */
-.other-projects {
-    margin-top: 6rem;
-    padding-top: 3rem;
-}
-
-.subsection-title {
-    font-family: var(--ff-main);
-    font-size: 1.53rem;
-    color: var(--cl-secondary);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 2.5rem;
-    padding-left: 6.2rem;
-}
-
-.secondary-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 2rem;
-    padding-left: 6.2rem;
-}
-
-.secondary-card {
-    cursor: pointer;
-}
-
-.sec-img-wrapper {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 9 / 16; 
-    overflow: hidden;
-    border-radius: 4px;
-    background-color: #1a1a1a;
-    margin-bottom: 1rem;
-}
-
-.sec-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.7;
-    transition: opacity 0.4s ease, transform 0.6s ease;
-}
-
-.secondary-card:hover .sec-image {
-    opacity: 1;
-    transform: scale(1.05);
-}
-
-.sec-info h4 {
-    font-family: var(--ff-main);
-    font-size: 1rem;
-    color: var(--cl-primary);
-    margin-bottom: 0.25rem;
-    transition: color 0.3s ease;
-}
-
-.sec-info p {
-    font-family: var(--ff-main);
-    font-size: 0.85rem;
-    color: var(--cl-secondary);
-}
-
-/* Highlight the title on hover */
-.secondary-card:hover .sec-info h4 {
-    color: var(--cl-highlight);
 }
